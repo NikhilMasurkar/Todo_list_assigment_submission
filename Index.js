@@ -30,11 +30,11 @@ function addTOList() {
 function displayTODO() {
     let newDataTag = "";
     listArr.forEach((element, index) => {
-        newDataTag = newDataTag + `<tr class="data_list">
+        newDataTag += `<tr class="data_list">
         <th>
-        <label><input id="check" type="checkbox" value="">${index + 1}</label>
+        <label>${index + 1}</label>
       </th>
-        <td id='todo ${index}'>${element}</td>
+        <td id='todo${index}'>${element}</td>
         <td class="Process_statement${index}">In progress</td>
         <td>
         <button onclick= deletetask(${index}) id="delete" type="submit" class="btn btn-danger">Delete</button>
@@ -55,23 +55,24 @@ function completeTask(index) {
     let Process_statement = document.querySelector(`.Process_statement${index}`);
     let items = list.getElementsByTagName("tr");
     let arr = [...items]
-    //    console.log(arr)
-    for (let i of arr) {
-        if (i.id == index) {
-            index= i;
-            console.log(index)
+    for (let i = 0; i<arr.length;i++) {
+         
+        if (i == index) {
+            index = i;
+            console.log()
+           
             if (completeFlag) {
                 Process_statement.innerHTML = "Completed"
                 Process_statement.style.color = "red"
                 Process_statement.style.textDecoration = "line-through 2px solid ";
-                document.getElementById('Finish').textContent = "Unfinished"
-                
-                document.getElementById("check").checked = true;
+                document.querySelectorAll('Finish').textContent = "Unfinished"
+
+                document.querySelectorAll(".check").checked = true;
                 completeFlag = false;
             } else {
+                Process_statement.innerHTML = "In Progress"
+                Process_statement.style.color = "black"
                 Process_statement.style.textDecoration = "none";
-                document.getElementById("check").checked = false;
-                document.getElementById('Finish').textContent = "Finished"
                 completeFlag = true;
             }
         }
