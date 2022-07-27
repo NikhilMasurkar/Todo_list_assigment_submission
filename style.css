@@ -25,7 +25,7 @@ body {
 #Finish{
     padding: 5px; 
     display: inline-block;
-    padding: 6px 12px;
+    padding: 7px 12px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -39,4 +39,7 @@ body {
     border-color: #3e8f3e;
     text-shadow: 0 -1px 0 rgb(0 0 0 / 20%);
     background-color: #5cb85c;
+}
+#Finish:hover{
+    background-image: linear-gradient(to bottom,#224722 0,#367e36 100%);
 }
