@@ -65,7 +65,7 @@ function completeTask(index) {
             if (completeFlag) {
                 Process_statement.innerHTML = "Completed"
                 Process_statement.style.color = "red"
-                Process_statement.style.textDecoration = "line-through 2px solid ";
+
                 document.querySelector(`.Finished${index}`).textContent = "Unfinished"
 
                 document.querySelector(`.check${index}`).checked = true;
@@ -74,7 +74,6 @@ function completeTask(index) {
                 Process_statement.innerHTML = "In Progress"
                 Process_statement.style.color = "black"
                 document.querySelector(`.check${index}`).checked = false;
-                Process_statement.style.textDecoration = "none";
                 document.querySelector(`.Finished${index}`).textContent = "Finished"
                 completeFlag = true;
             }
