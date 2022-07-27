@@ -32,7 +32,7 @@ function displayTODO() {
     listArr.forEach((element, index) => {
         newDataTag = newDataTag + `<tr class="data_list">
         <th>
-        <label><input id="check" type="checkbox" value="">${index+1}</label>
+        <label><input id="check" type="checkbox" value="">${index + 1}</label>
       </th>
         <td id='todo ${index}'>${element}</td>
         <td class="Process_statement${index}">In progress</td>
@@ -55,19 +55,23 @@ function completeTask(index) {
     let Process_statement = document.querySelector(`.Process_statement${index}`);
     let items = list.getElementsByTagName("tr");
     let arr = [...items]
-//    console.log(arr)
-    for (let i of arr ) {
+    //    console.log(arr)
+    for (let i of arr) {
         if (i.id == index) {
-            let todolist = i;
+            index= i;
             console.log(index)
             if (completeFlag) {
-                Process_statement.innerHTML = "Complited"
+                Process_statement.innerHTML = "Completed"
                 Process_statement.style.color = "red"
-                todolist.style.textDecoration = "line-through 2px solid ";
-                document.getElementById("check").checked = true
+                Process_statement.style.textDecoration = "line-through 2px solid ";
+                document.getElementById('Finish').textContent = "Unfinished"
+                
+                document.getElementById("check").checked = true;
                 completeFlag = false;
-            }else {
-                todolist.style.textDecoration = "none";
+            } else {
+                Process_statement.style.textDecoration = "none";
+                document.getElementById("check").checked = false;
+                document.getElementById('Finish').textContent = "Finished"
                 completeFlag = true;
             }
         }
